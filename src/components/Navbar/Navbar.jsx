@@ -1,7 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
  
  const Navbar = () => {
+
+     const navigate = useNavigate();
+     const handleBuy = () =>{
+      navigate('/buy') 
+      
+     }
      
         const navLinks = 
     <div id='nav-button' className='flex btn gap-4'>
@@ -16,7 +22,9 @@ import { NavLink } from 'react-router-dom';
      <NavLink to ='/paintings' className="hover:bg-blue-400 hover:text-white">Paintings</NavLink> 
 
      <NavLink to ='/login' className="hover:bg-blue-400 hover:text-white bg-white p-2 rounded-lg text-black">Log In</NavLink> 
+
      <NavLink to ='/signup' className="hover:bg-blue-400 hover:text-white bg-black rounded-lg">Sign Up</NavLink> 
+
     </div>
     return (
       <div className="navbar bg-base-100 container mx-auto">

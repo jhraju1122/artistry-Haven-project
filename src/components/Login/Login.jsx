@@ -1,8 +1,12 @@
  
-import { Link } from 'react-router-dom';
-
+import { Link, Navigate } from 'react-router-dom';
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
+import { useState } from 'react';
+ 
 const login = () => {
-  
+  const [registerError, setRegisterError] = useState('');
+  const [success, setSuccess] = useState('');
   const handleLogin = e =>{
     e.preventDefault();
     const email = e.target.email.value;
@@ -10,6 +14,26 @@ const login = () => {
     const accepted = e.target.terms.checked;
     const user = { email, password, accepted};
     console.log(user);
+
+    
+      //  password at least 6 characters
+      if(password.length < 6){
+        setRegisterError('password should be at least 6 characters or longer');
+        return;
+      }
+      else if(!/[a-z]/.test(password)){
+        setRegisterError('your password should have at least one lowar case characters.');
+        return;
+      }
+      else if(!accepted){
+        setRegisterError('please accepted our terms and conditions!');
+        return;
+      }
+         
+      //  reset user 
+      setRegisterError('');
+      setSuccess('');
+    
 
   }
   return (
@@ -55,12 +79,18 @@ const login = () => {
         </div>
           </div>
         </form>
-      
+            {
+              registerError && <p className='text-red-700'>{registerError}</p>
+            }
+            {
+              success && <p className='text-green-600'>{success}</p>
+            }
         <p>You have not already an account? please <Link to="/signup">
         <button type='submit' className="btn btn-link">Sign Up</button>
         </Link> </p>
 
-        <button className='btn'>Goole Login</button>
+        <Link className='btn'> <FcGoogle className='text-xl'></FcGoogle> Google</Link>
+        <Link className='btn'> <FaGithub className='text-xl'></FaGithub> Github</Link>
       </div>
     </div>
   </div>

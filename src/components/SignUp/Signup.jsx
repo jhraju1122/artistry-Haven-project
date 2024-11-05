@@ -1,9 +1,13 @@
-import React from 'react';
+ 
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
+// const auth = getAuth();
 const Signup = () => {
-    
-  const handleSignUp = e =>{
+    const [registerError, setRegisterError] = useState('');
+   const [success, setSuccess] = useState('');
+   const handleSignUp = e =>{
     e.preventDefault()
      const name = e.target.name.value;
      const photo = e.target.photo.value;
@@ -13,6 +17,33 @@ const Signup = () => {
     const user = {name, photo, email, password, accepted};
      console.log(user);
 
+
+      //  password at least 6 characters
+    if(password.length < 6){
+      setRegisterError('password should be at least 6 characters or longer');
+      return;
+    }
+    else if(!/[a-z]/.test(password)){
+      setRegisterError('your password should have at least one lowar case characters.');
+      return;
+    }
+    else if(!accepted){
+      setRegisterError('please accepted our terms and conditions!');
+      return;
+    }
+       
+    //  reset user 
+    setRegisterError('');
+    setSuccess('');
+    
+  //  
+  // createUserWithEmailAndPassword(auth, email, password)
+  // .then(result =>{
+  //   console.log(result.user);
+  //   setSuccess('created user successfully');
+  // })
+   
+      
     }
 
 
@@ -68,11 +99,17 @@ const Signup = () => {
               {/* terms and conditions */}
             
             </form>
-            
+            {
+              registerError && <p className='text-red-700'>{registerError}</p>
+            }
+            {
+              success && <p className='text-green-600'>{success}</p>
+            }
             <p>You have already an account? please <Link to="/login">
             <button type='submit' className="btn btn-link">Login</button>
             </Link>
             </p>
+            
           </div>
         </div>
       </div>
