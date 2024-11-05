@@ -13,6 +13,8 @@ import Login from './components/Login/login';
 import ErrorPage from './Errorpage/ErrorPage';
 import Buy from './components/Buy/Buy';
 import PrivateRoute from './components/routes/PrivateRoute';
+import DetailsItems from './components/DetailsItemsPage/DetailsItems';
+// import AuthProvider from './AuthProvider/AuthProvider';
  
 
 const router = createBrowserRouter([
@@ -21,17 +23,15 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     errorElement: <ErrorPage></ErrorPage>,
     children:[
-      {
-        path: "/login",
-        element: <Login></Login>,
-        },
-        {
-        path: "/signup",
-        element: <Signup></Signup>,
-        },
+      
+      
         {
         path: "/buy",
         element: <Buy></Buy> ,
+        },
+        {
+        path: "/detailsItems",
+        element:  <DetailsItems></DetailsItems> ,
         },
         {
           path: "/private",
@@ -40,9 +40,17 @@ const router = createBrowserRouter([
     ]
      
   },
+  {
+    path: "/signup",
+    element: <Signup></Signup>,
+    },
+    {
+      path: "/login",
+      element: <Login></Login>,
+      },
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <RouterProvider router={router} />
+  <RouterProvider router={router} />
   </StrictMode>,
 )

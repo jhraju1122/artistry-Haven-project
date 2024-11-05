@@ -1,10 +1,16 @@
  
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import auth from '../../firebase/firebase.config';
+  
 
-// const auth = getAuth();
-const Signup = () => {
+ const Signup = () => {
+ 
+ 
+    
+
+
     const [registerError, setRegisterError] = useState('');
    const [success, setSuccess] = useState('');
    const handleSignUp = e =>{
@@ -36,16 +42,19 @@ const Signup = () => {
     setRegisterError('');
     setSuccess('');
     
-  //  
-  // createUserWithEmailAndPassword(auth, email, password)
-  // .then(result =>{
-  //   console.log(result.user);
-  //   setSuccess('created user successfully');
-  // })
-   
-      
-    }
+   // create user
+   createUserWithEmailAndPassword (auth, email, password)
+     
+   .then(result =>{
+     console.log(result.user);
+     setSuccess('User created successfully');
+   })
+   .catch(error => { 
+     console.error(error);
+     setRegisterError(error.message)
+   })
 
+  }
 
   return (
     <div className="hero bg-base-200 min-h-screen">
