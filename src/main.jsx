@@ -14,6 +14,7 @@ import ErrorPage from './Errorpage/ErrorPage';
 import Buy from './components/Buy/Buy';
 import PrivateRoute from './components/routes/PrivateRoute';
 import DetailsItems from './components/DetailsItemsPage/DetailsItems';
+import AddCraftItems from './components/AddCraftItems/AddCraftItems';
 // import AuthProvider from './AuthProvider/AuthProvider';
  
 
@@ -29,10 +30,7 @@ const router = createBrowserRouter([
         path: "/buy",
         element: <Buy></Buy> ,
         },
-        {
-        path: "/detailsItems",
-        element:  <DetailsItems></DetailsItems> ,
-        },
+       
         {
           path: "/private",
           element: <PrivateRoute> </PrivateRoute>,
@@ -47,7 +45,19 @@ const router = createBrowserRouter([
     {
       path: "/login",
       element: <Login></Login>,
-      },
+    },
+    {
+      path: "/detailsItems",
+      element:  <DetailsItems></DetailsItems> ,
+     },
+    {
+      path: "/addCraftItems",
+      element:  <AddCraftItems></AddCraftItems> ,
+     },
+    {
+      path: "/updateItems",
+      element:  <AddCraftItems></AddCraftItems> ,
+     },
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>

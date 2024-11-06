@@ -5,6 +5,14 @@ import { FaGithub } from "react-icons/fa";
 import { useState } from 'react';
  
 const login = () => {
+    
+  // login show hide function 
+  const [loggedIn, setLoggedIn] = useState(false);
+  const handleLogInLogOut = () =>{
+  setLoggedIn(!loggedIn);
+  }
+  
+
   const [registerError, setRegisterError] = useState('');
   const [success, setSuccess] = useState('');
   const handleLogin = e =>{
@@ -40,6 +48,26 @@ const login = () => {
     
     <div>
     
+    <div className='justify-self-end p-10 '>
+        
+        <Link to ='/' className="hover:bg-blue-400 hover:text-white mr-4">Home</Link> 
+       
+       <Link to ='/buy' className="hover:bg-blue-400 hover:text-white mr-4">Buy</Link> 
+       
+       <Link to ='/sell' className="hover:bg-blue-400 hover:text-white mr-4">Sell</Link> 
+       
+       <Link to ='/editorial' className="hover:bg-blue-400 hover:text-white mr-4">Editorial</Link> 
+       
+       <Link to ='/paintings' className="hover:bg-blue-400 hover:text-white mr-4">Paintings</Link> 
+       
+       <Link onSubmit={handleLogInLogOut} to ='/login' className="hover:bg-blue-400 hover:text-white bg-white p-2 rounded-lg text-black mr-4">
+       { loggedIn ? 'Logout' : 'Login'}
+       </Link> 
+       
+       <Link   to ='/signup' className="hover:bg-blue-400 hover:text-white bg-black rounded-lg">Sign Up</Link> 
+       
+               </div>
+
     <div className="hero bg-base-200 min-h-screen">
     <div className="hero-content flex-col lg:flex-row-reverse">
       <div className="text-center lg:text-left">
@@ -71,8 +99,10 @@ const login = () => {
 
 
           <div className="form-control mt-6">
-            <button type='submit' className="btn btn-primary">Login</button>
-
+            <button  type='submit' className="btn btn-primary">
+             LogIn
+            </button>
+              {/* {loggedIn && <p> you are now logged in</p>} */}
             <div>
         <input type="checkbox" name="terms" id="terms" />
         <label className='ml-2 mb-4' htmlFor='terms'>Accept our <a>Terms and Conditions</a></label>

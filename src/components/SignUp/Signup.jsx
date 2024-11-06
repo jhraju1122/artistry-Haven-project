@@ -57,6 +57,26 @@ import auth from '../../firebase/firebase.config';
   }
 
   return (
+    <div>
+     <div className='justify-self-end p-10 '>
+        
+        <Link to ='/' className="hover:bg-blue-400 hover:text-white mr-4">Home</Link> 
+       
+       <Link to ='/buy' className="hover:bg-blue-400 hover:text-white mr-4">Buy</Link> 
+       
+       <Link to ='/sell' className="hover:bg-blue-400 hover:text-white mr-4">Sell</Link> 
+       
+       <Link to ='/editorial' className="hover:bg-blue-400 hover:text-white mr-4">Editorial</Link> 
+       
+       <Link to ='/paintings' className="hover:bg-blue-400 hover:text-white mr-4">Paintings</Link> 
+       
+       <Link to ='/login' className="hover:bg-blue-400 hover:text-white bg-white p-2 rounded-lg text-black mr-4">Log In</Link> 
+       
+       <Link to ='/signup' className="hover:bg-blue-400 hover:text-white bg-black rounded-lg">Sign Up</Link> 
+       
+               </div>
+
+
     <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
@@ -122,6 +142,8 @@ import auth from '../../firebase/firebase.config';
           </div>
         </div>
       </div>
+    </div>
+   
       
   );
 };
