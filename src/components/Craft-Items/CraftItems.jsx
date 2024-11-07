@@ -16,6 +16,7 @@ const CraftItems = () => {
     <h2 className="card-title">item_name: </h2>
     <p>price</p>
     <Link to="/detailsItems" className='btn w-[100%]'>View Details</Link>
+    <Link to="/" className='btn w-[100%]'>Delete</Link>
     <div className="card-actions justify-end">
       <div className="badge badge-outline">ratings</div>
      </div>

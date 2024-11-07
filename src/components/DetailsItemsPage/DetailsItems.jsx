@@ -45,6 +45,7 @@ const DetailsItems = () => {
           <p>  User Name:</p>
           <div className="card-actions justify-end">
             <button className="btn btn-primary">Add to Cart</button>
+            
           </div>
         </div>
       </div>

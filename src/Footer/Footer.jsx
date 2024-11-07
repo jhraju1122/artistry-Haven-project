@@ -2,7 +2,19 @@ import React from 'react';
 
 const Footer = () => {
     return (
+      
         <footer className="footer bg-neutral text-neutral-content grid-rows-2 p-10 container mx-auto">
+
+<aside>
+    <img src="https://i.ibb.co.com/QXGKvvZ/44400.png" alt="" />
+   <a href="">
+   <p className='text-2xl font-bold'>
+     Artsy Haven
+    </p>
+   </a>
+  </aside>
+  
+
         <nav>
           <h6 className="footer-title">Services</h6>
           <a className="link link-hover">Branding</a>

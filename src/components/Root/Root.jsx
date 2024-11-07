@@ -6,6 +6,7 @@ import CraftItems from '../Craft-Items/CraftItems';
 import Footer from '../../Footer/Footer';
 import CraftCategorie from '../CraftCategorie/CraftCategorie';
 import FeaturedGalleries from '../Craft-Items/FeaturedGalleries';
+import Footer2 from '../../Footer/Footer2';
 
 const Root = () => {
     return (
@@ -17,6 +18,7 @@ const Root = () => {
        <FeaturedGalleries></FeaturedGalleries>
          <Outlet></Outlet>
          <Footer></Footer>
+         <Footer2></Footer2>
     </div>
     );
 };
