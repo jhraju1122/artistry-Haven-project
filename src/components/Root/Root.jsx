@@ -16,9 +16,14 @@ const Root = () => {
         <div className='max-w-full md:max-w-full mx-auto'>
        <Navbar></Navbar>
        <BannerCarrousel></BannerCarrousel>
-      <div className='grid grid-cols-3 container mx-auto'>
+       <h1 className='text-6xl text-center text-white mt-32 mb-10'>Trending Artists on Artsy:{crafts.length}</h1>
+      <div className='grid grid-cols-2  container mx-auto'>
+       
       {
-        crafts.map(craft => <CraftItems></CraftItems>)
+        crafts.map(craft => <CraftItems
+        key={craft._id}
+        craft={craft}
+        ></CraftItems>)
        }
       </div>
        <CraftCategorie></CraftCategorie>

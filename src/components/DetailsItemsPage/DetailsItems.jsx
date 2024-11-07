@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 
  
 
-const DetailsItems = () => {
+const DetailsItems = ({craft}) => {
+
+  // const {name, photo, email, password, accepted, price} = craft;
+
+
     return (
        <div className='container mx-auto'>
 
@@ -28,7 +32,7 @@ const DetailsItems = () => {
          <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure>
           <img
-            src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
+            src=  ""
             alt="Album" />
         </figure>
         <div className="card-body">

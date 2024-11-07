@@ -11,10 +11,10 @@ import Swal from 'sweetalert2'
    const quantity = form.quantity.value;
    const woner = form.woner.value;
    const details = form.details.value;
-   const teste = form.teste.value;
+   const price = form.price.value;
    const Category = form.Category.value;
    const photo = form.photo.value;
-   const addItems = {name, quantity, woner, details, teste, Category, photo};
+   const addItems = {name, quantity, woner, details, price, Category, photo};
    console.log(addItems);
     
    // send data to the server
@@ -65,7 +65,7 @@ import Swal from 'sweetalert2'
          {/* form teste row  */}
       <div className="md:flex w-[100%] justify-center mb-3 gap-3">
       <div className="input input-bordered flex items-center gap-2 md:w-1/2">
-      <input type="text" className="grow" name="teste" placeholder="teste Name" />
+      <input type="text" className="grow" name="price" placeholder="price" />
       </div>
       <div className="input input-bordered flex items-center gap-2 md:w-1/2">
       <input type="text" className="grow" name="Category" placeholder="Category" />
