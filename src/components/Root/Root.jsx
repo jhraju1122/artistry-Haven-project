@@ -1,5 +1,5 @@
  
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLoaderData } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import BannerCarrousel from '../BannerCarrousel/BannerCarrousel';
 import CraftItems from '../Craft-Items/CraftItems';
@@ -9,11 +9,18 @@ import FeaturedGalleries from '../Craft-Items/FeaturedGalleries';
 import Footer2 from '../../Footer/Footer2';
 
 const Root = () => {
+    const crafts = useLoaderData();
+
+
     return (
         <div className='max-w-full md:max-w-full mx-auto'>
        <Navbar></Navbar>
        <BannerCarrousel></BannerCarrousel>
-       <CraftItems></CraftItems>
+      <div className='grid grid-cols-3 container mx-auto'>
+      {
+        crafts.map(craft => <CraftItems></CraftItems>)
+       }
+      </div>
        <CraftCategorie></CraftCategorie>
        <FeaturedGalleries></FeaturedGalleries>
          <Outlet></Outlet>

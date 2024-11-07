@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CraftItems = () => {
+const CraftItems = ({craft}) => {
+
+ 
+
     return (
-        <div className='container mx-auto'>
-            <h1 className='text-3xl py-8'>Trending Artists on Artsy</h1>
+       <div className=''>
+         <div className=''>
+            <h1 className='text-3xl py-8'>Trending Artists on Artsy: </h1>
+ 
 
             <div className="card   w-96 shadow-xl">
   <figure>
@@ -23,6 +28,7 @@ const CraftItems = () => {
   </div>
 </div>
         </div>
+       </div>
     );
 };
 

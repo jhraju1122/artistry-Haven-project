@@ -15,6 +15,8 @@ import Buy from './components/Buy/Buy';
 import PrivateRoute from './components/routes/PrivateRoute';
 import DetailsItems from './components/DetailsItemsPage/DetailsItems';
 import AddCraftItems from './components/AddCraftItems/AddCraftItems';
+import UpdateItems from './components/UpdateItems/UpdateItems';
+import CraftItems from './components/Craft-Items/CraftItems';
 // import AuthProvider from './AuthProvider/AuthProvider';
  
 
@@ -22,6 +24,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    loader: () =>fetch('http://localhost:5000/craft'),
     errorElement: <ErrorPage></ErrorPage>,
     children:[
       
@@ -42,6 +45,10 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <Signup></Signup>,
     },
+  {
+    path: "/craftItems",
+    element: <CraftItems></CraftItems>,
+    },
     {
       path: "/login",
       element: <Login></Login>,
@@ -56,7 +63,7 @@ const router = createBrowserRouter([
      },
     {
       path: "/updateItems",
-      element:  <AddCraftItems></AddCraftItems> ,
+      element: <UpdateItems></UpdateItems> ,
      },
 ]);
 createRoot(document.getElementById('root')).render(
