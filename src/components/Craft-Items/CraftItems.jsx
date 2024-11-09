@@ -5,7 +5,7 @@ import DetailsItems from '../DetailsItemsPage/DetailsItems';
 import Swal from 'sweetalert2';
 import { data } from 'autoprefixer';
 
-const CraftItems = ({craft}) => {
+const CraftItems = ({craft, crafts, setCrafts}) => {
 
     const {name, photo,quantity, woner, details, Category, price, _id} = craft;
 
@@ -35,6 +35,8 @@ const CraftItems = ({craft}) => {
             icon: "success"
           });
             }
+            const remaining = crafts.filter =(cra =>cra._id !== _id)
+            setCrafts(remaining);
            })
         }
       });

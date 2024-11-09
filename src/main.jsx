@@ -17,6 +17,7 @@ import DetailsItems from './components/DetailsItemsPage/DetailsItems';
 import AddCraftItems from './components/AddCraftItems/AddCraftItems';
 import UpdateItems from './components/UpdateItems/UpdateItems';
 import CraftItems from './components/Craft-Items/CraftItems';
+import FirebaseProvider from './components/FirebaseProvider/FirebaseProvider';
 // import AuthProvider from './AuthProvider/AuthProvider';
  
 
@@ -63,11 +64,19 @@ const router = createBrowserRouter([
      },
     {
       path: "/updateItems",
-      element: <UpdateItems></UpdateItems> ,
+      element: <UpdateItems></UpdateItems>,
+      loader:({params}) => fetch(`http://localhost:5000/craft${params.id}`)
      },
+     {
+      path: 'detailsItems/:id',
+      element: <PrivateRoute><DetailsItems></DetailsItems></PrivateRoute>,
+    },
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <RouterProvider router={router} />
+ <FirebaseProvider>
+ <RouterProvider router={router} />
+ </FirebaseProvider>
+
   </StrictMode>,
 )

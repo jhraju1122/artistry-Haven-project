@@ -52,7 +52,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
           <ul
            tabIndex={0}
            className="menu menu-sm dropdown-content bg-base-100rounded-box z-[1] mt-3  w-52 p-2 shadow">
-          <li>
+          <li className='bg-black text-white'>
           <Link to="/addCraftItems">Add Items</Link>  
           <Link to="/updateItems">Update Items</Link>  
           </li>          

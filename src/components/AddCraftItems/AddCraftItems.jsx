@@ -40,6 +40,8 @@ import Swal from 'sweetalert2'
 
   }
 
+  
+
     return (
       <div className="bg-[#F4F3F0] p-24">
       <h1 className="mb-5 text-black text-3xl font-extrabold">add a craft</h1>

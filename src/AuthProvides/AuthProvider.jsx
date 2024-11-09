@@ -2,9 +2,10 @@ import { useContext } from "react";
 import { AuthContext } from "../components/providers/Authprovider";
 import { Navigate } from "react-router-dom";
 import PropTypes from 'prop-types'; 
-
- 
-const PrivateRoute = ({children}) => {
+import { getAuth } from "firebase/auth";
+ import { app } from "../firebase/firebase.config";
+const auth = getAuth(app);
+const AuthProvider = ({children}) => {
     const { user, loading }= useContext(AuthContext);
 
     if(loading){
@@ -14,7 +15,7 @@ const PrivateRoute = ({children}) => {
     return <Navigate to="/login"></Navigate>;
 };
 
-export default PrivateRoute;
+export default AuthProvider;
 
 PrivateRoute.PropTypes = {
     children: PropTypes.node

@@ -7,10 +7,12 @@ import Footer from '../../Footer/Footer';
 import CraftCategorie from '../CraftCategorie/CraftCategorie';
 import FeaturedGalleries from '../Craft-Items/FeaturedGalleries';
 import Footer2 from '../../Footer/Footer2';
+import { useState } from 'react';
+import FirebaseProvider from '../FirebaseProvider/FirebaseProvider';
 
 const Root = () => {
-    const crafts = useLoaderData();
-
+    const loadedCrafts = useLoaderData();
+    const [crafts, setCrafts] = useState(loadedCrafts);
 
     return (
         <div className='max-w-full md:max-w-full mx-auto'>
@@ -23,11 +25,18 @@ const Root = () => {
         crafts.map(craft => <CraftItems
         key={craft._id}
         craft={craft}
+        crafts={crafts}
+        setCrafts={setCrafts}
         ></CraftItems>)
        }
       </div>
        <CraftCategorie></CraftCategorie>
-       <FeaturedGalleries></FeaturedGalleries>
+     <FeaturedGalleries></FeaturedGalleries>
+{/*     
+      <FirebaseProvider text={"hellow"} text2={'hellowworld'}>
+        <button>Click me</button>
+      </FirebaseProvider> */}
+
          <Outlet></Outlet>
          <Footer></Footer>
          <Footer2></Footer2>

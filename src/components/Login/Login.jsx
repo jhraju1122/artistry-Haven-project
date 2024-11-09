@@ -1,11 +1,12 @@
  
-import { Link, Navigate } from 'react-router-dom';
-import { FcGoogle } from "react-icons/fc";
+import { Link } from 'react-router-dom';
 import { FaGithub } from "react-icons/fa";
 import { useState } from 'react';
+ import useAuth from '../../hooks/useAuth';
+import SocialLogin from './SocialLogin';
  
 const login = () => {
-    
+    const {signInUser} = useAuth();
   // login show hide function 
   const [loggedIn, setLoggedIn] = useState(false);
   const handleLogInLogOut = () =>{
@@ -119,7 +120,7 @@ const login = () => {
         <button type='submit' className="btn btn-link">Sign Up</button>
         </Link> </p>
 
-        <Link className='btn'> <FcGoogle className='text-xl'></FcGoogle> Google</Link>
+       <SocialLogin></SocialLogin>
         <Link className='btn'> <FaGithub className='text-xl'></FaGithub> Github</Link>
       </div>
     </div>
